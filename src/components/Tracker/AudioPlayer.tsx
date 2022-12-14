@@ -14,7 +14,6 @@ export const AudioPlayer = () => {
   return (
     <ReactAudioPlayer
       src="https://cdn.pixabay.com/audio/2021/09/06/audio_37aad22374.mp3"
-      controls
       ref={ref}
       autoPlay
       onEnded={replay}
