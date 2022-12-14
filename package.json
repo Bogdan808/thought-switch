@@ -2,7 +2,7 @@
   "name": "thought-switch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bogdan808.github.io/thought-swith",
+  "homepage": "https://bogdan808.github.io/thought-switch",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -33,7 +33,7 @@
   "scripts": {
     "start": "PORT=3001 react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
