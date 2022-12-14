@@ -2,6 +2,7 @@
   "name": "thought-switch",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://thought-switch.github.io/react-gh-pages",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -31,6 +32,8 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -56,6 +59,7 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1"
+    "eslint-plugin-prettier": "^3.3.1",
+    "gh-pages": "^4.0.0"
   }
 }
