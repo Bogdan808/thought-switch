@@ -16,15 +16,19 @@ export const Tracker = () => {
   return (
     <Wrapper>
       <Header>
-        <div>
-          <Selector maxSeconds={maxSeconds} />
-        </div>
-        <div>
-          <AudioPlayer />
-        </div>
-        <div>
+        <Actions>
+          <SelectorWrapper>
+            <Selector maxSeconds={maxSeconds} />
+          </SelectorWrapper>
+
+          <AudioWrapper>
+            <AudioPlayer />
+          </AudioWrapper>
+        </Actions>
+
+        <TimerWrapper>
           <Timer />
-        </div>
+        </TimerWrapper>
       </Header>
       <Track />
       <Footer>
@@ -37,7 +41,6 @@ export const Tracker = () => {
 
 const Header = styled(Center)`
   align-items: center;
-  justify-content: space-between;
 `;
 
 const Wrapper = styled.div`
@@ -48,3 +51,13 @@ const Footer = styled(Center)`
   align-items: center;
   margin-top: 120px;
 `;
+const Actions = styled.div`
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+`;
+const SelectorWrapper = styled.div``;
+const AudioWrapper = styled.div`
+  margin-left: 16px;
+`;
+const TimerWrapper = styled.div``;

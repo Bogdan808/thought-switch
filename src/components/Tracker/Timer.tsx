@@ -3,15 +3,11 @@ import { useEffect } from "react";
 import { useTimerStore } from "./store/useTimerStore";
 import { Typography } from "@mui/material";
 export const Timer = () => {
-  const {
-    incrementSeconds,
-    setSeconds,
-    getSeconds,
-    seconds,
-    maxSeconds,
-    getMaxSeconds,
-  } = useTimerStore((store) => store);
+  const { incrementSeconds, setSeconds, getSeconds, seconds, maxSeconds } =
+    useTimerStore((store) => store);
   const isLaunched = useTimerStore((store) => store.isLaunched);
+
+  const getMaxSeconds = useTimerStore((store) => store.getMaxSeconds);
 
   useEffect(() => {
     setSeconds(0);
