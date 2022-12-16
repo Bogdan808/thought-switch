@@ -10,7 +10,11 @@ export const AudioPlayer = () => {
   const [isMusicOn, setMusicOn] = useState(true);
 
   useEffect(() => {
-    ref.current?.audioEl.current?.play();
+    if (isLaunched) {
+      ref.current?.audioEl.current?.play();
+    } else {
+      ref.current?.audioEl.current?.pause();
+    }
   }, [isLaunched]);
   const replay = () => {
     ref.current?.audioEl.current?.play();

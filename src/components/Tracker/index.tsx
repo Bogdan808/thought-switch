@@ -58,6 +58,7 @@ const Footer = styled(Center)`
     margin-bottom: 8px;
   }
 `;
+
 const Actions = styled.div`
   margin-right: auto;
   display: flex;
