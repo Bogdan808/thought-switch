@@ -9,6 +9,7 @@ import { useTimerStore } from "./store/useTimerStore";
 import shallow from "zustand/shallow";
 import { RunButton } from "./RunButton";
 import { AudioPlayer } from "./AudioPlayer";
+import { RestartButton } from "./RestartButton";
 
 export const Tracker = () => {
   const [maxSeconds] = useTimerStore((store) => [store.maxSeconds], shallow);
@@ -34,6 +35,7 @@ export const Tracker = () => {
       <Footer>
         {isLaunched && <AddDisruption />}
         {!isLaunched && <RunButton />}
+        {isLaunched && <RestartButton />}
       </Footer>
     </Wrapper>
   );
@@ -50,6 +52,11 @@ const Wrapper = styled.div`
 const Footer = styled(Center)`
   align-items: center;
   margin-top: 120px;
+  flex-direction: column;
+
+  & > button {
+    margin-bottom: 8px;
+  }
 `;
 const Actions = styled.div`
   margin-right: auto;
