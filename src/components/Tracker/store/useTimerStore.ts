@@ -1,11 +1,14 @@
 import create from "zustand";
+import { IDisruption, TStatusTracker } from "../types";
 
 export interface ITimerStore {
+  status: TStatusTracker;
+  setStatus: (value: TStatusTracker) => void;
   seconds: number;
   setSeconds: (value: number) => void;
   getSeconds: () => number;
   incrementSeconds: () => void;
-  disruptions: IDiscuption[];
+  disruptions: IDisruption[];
   setDisruption: (value: number) => void;
   initSecond: number;
   setInitSecond: (value: number) => void;
@@ -17,12 +20,9 @@ export interface ITimerStore {
   restartLaunch: () => void;
 }
 
-interface IDiscuption {
-  value: number;
-  label: string;
-}
-
 export const useTimerStore = create<ITimerStore>((set, get) => ({
+  status: "init",
+  setStatus: (value) => set((state) => ({ ...state, status: value })),
   seconds: 0,
   setSeconds: (value) => {
     set((store) => ({ ...store, seconds: value }));
@@ -41,7 +41,8 @@ export const useTimerStore = create<ITimerStore>((set, get) => ({
         ...store.disruptions,
         {
           value: value,
-          label: `${value}`,
+          label: ``,
+          marker: true,
         },
       ],
     }));
