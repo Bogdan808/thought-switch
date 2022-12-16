@@ -10,10 +10,12 @@ import shallow from "zustand/shallow";
 import { RunButton } from "./RunButton";
 import { AudioPlayer } from "./AudioPlayer";
 import { RestartButton } from "./RestartButton";
+import { Typography } from "@mui/material";
 
 export const Tracker = () => {
   const [maxSeconds] = useTimerStore((store) => [store.maxSeconds], shallow);
   const isLaunched = useTimerStore((store) => store.isLaunched);
+  const status = useTimerStore((store) => store.status);
   return (
     <Wrapper>
       <Header>
@@ -37,6 +39,15 @@ export const Tracker = () => {
         {!isLaunched && <RunButton />}
         {isLaunched && <RestartButton />}
       </Footer>
+
+      {status === "finished" && (
+        <Finished>
+          <Typography variant={"h3"}>
+            Your have finished the task. <br />
+            Your result:
+          </Typography>
+        </Finished>
+      )}
     </Wrapper>
   );
 };
@@ -69,3 +80,7 @@ const AudioWrapper = styled.div`
   margin-left: 16px;
 `;
 const TimerWrapper = styled.div``;
+
+const Finished = styled.div`
+  text-align: center;
+`;
