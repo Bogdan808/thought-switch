@@ -22,10 +22,12 @@ export const AudioPlayer = () => {
 
   const toggleMusic = () => {
     setMusicOn(!isMusicOn);
-    if (isMusicOn) {
-      ref.current?.audioEl.current?.pause();
-    } else {
-      ref.current?.audioEl.current?.play();
+    if (status === "launched") {
+      if (isMusicOn) {
+        ref.current?.audioEl.current?.pause();
+      } else {
+        ref.current?.audioEl.current?.play();
+      }
     }
   };
 
