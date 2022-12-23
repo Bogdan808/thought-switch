@@ -60,5 +60,10 @@ export const useTimerStore = create<ITimerStore>((set, get) => ({
   toggleLaunch: () =>
     set((store) => ({ ...store, isLaunched: !store.isLaunched })),
   restartLaunch: () =>
-    set((store) => ({ ...store, isLaunched: false, seconds: 0 })),
+    set((store) => ({
+      ...store,
+      isLaunched: false,
+      seconds: 0,
+      disruptions: [],
+    })),
 }));
