@@ -3,7 +3,7 @@ import { createResultArray } from "../helpers/createResultArray";
 import { getNumberArrayOfDisruptions } from "../helpers/getNumberArrayOfDisruptions";
 
 describe("ShowResult", () => {
-  test("Get number array from disruption list", () => {
+  test("Get array of numbers from disruption list", () => {
     const mock: IDisruption[] = [
       { value: 1, label: "" },
       { value: 2, label: "" },

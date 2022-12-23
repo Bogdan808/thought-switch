@@ -25,8 +25,11 @@ And marked the longest period of time when the status was true.
 
 ### Order of implementing
 0. Get the array of values from the disrupted array.
-1. Create an array with dates of type:
 ```js
+[0, 1, 2, 3, 5] 
+```
+1. Create an array with dates of type:
+```ts
 [
   {
     value: 1,

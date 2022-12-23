@@ -2,23 +2,23 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useTimerStore } from "./store/useTimerStore";
 import { Typography } from "@mui/material";
+import { useSetInitSeconds } from "./presets/presets";
 export const Timer = () => {
-  const { incrementSeconds, setSeconds, getSeconds, seconds, maxSeconds } =
-    useTimerStore((store) => store);
+  const { incrementSeconds, getSeconds, seconds, maxSeconds } = useTimerStore(
+    (store) => store
+  );
   const isLaunched = useTimerStore((store) => store.isLaunched);
   const setStatus = useTimerStore((store) => store.setStatus);
   const getMaxSeconds = useTimerStore((store) => store.getMaxSeconds);
 
-  useEffect(() => {
-    setSeconds(119);
-  }, []);
+  useSetInitSeconds(119);
 
   useEffect(() => {
     if (isLaunched) {
       const interval = setInterval(() => {
         incrementSeconds();
         const seconds = getSeconds();
-        if (seconds === getMaxSeconds()) {
+        if (seconds >= getMaxSeconds()) {
           clearInterval(interval);
           setStatus("finished");
         }

@@ -9,7 +9,7 @@ export interface ITimerStore {
   getSeconds: () => number;
   incrementSeconds: () => void;
   disruptions: IDisruption[];
-  setDisruption: (value: number) => void;
+  addDisruption: (value: number) => void;
   initSecond: number;
   setInitSecond: (value: number) => void;
   maxSeconds: number;
@@ -34,7 +34,7 @@ export const useTimerStore = create<ITimerStore>((set, get) => ({
     set((store) => ({ ...store, seconds: store.seconds + 1 }));
   },
   disruptions: [],
-  setDisruption: (value) => {
+  addDisruption: (value) => {
     set((store) => ({
       ...store,
       disruptions: [

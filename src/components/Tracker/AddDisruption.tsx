@@ -4,7 +4,7 @@ import { useTimerStore } from "./store/useTimerStore";
 import styled from "styled-components";
 
 export const AddDisruption = () => {
-  const { setDisruption, getSeconds, disruptions } = useTimerStore(
+  const { addDisruption, getSeconds, disruptions } = useTimerStore(
     (store) => store
   );
 
@@ -12,7 +12,7 @@ export const AddDisruption = () => {
     <Button
       variant="contained"
       size={"large"}
-      onClick={() => setDisruption(getSeconds())}
+      onClick={() => addDisruption(getSeconds())}
     >
       Distracted
     </Button>

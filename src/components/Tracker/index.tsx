@@ -1,8 +1,7 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Center } from "../styles";
 import styled from "styled-components";
 import { Timer } from "./Timer";
-import { Track } from "./Track";
 import { AddDisruption } from "./AddDisruption";
 import { Selector } from "./Selector";
 import { useTimerStore } from "./store/useTimerStore";
@@ -11,6 +10,9 @@ import { RunButton } from "./RunButton";
 import { AudioPlayer } from "./AudioPlayer";
 import { RestartButton } from "./RestartButton";
 import { Typography } from "@mui/material";
+import { ShowResult } from "./Track";
+import { Space } from "../common/Space";
+import { FinalMessage, Finished } from "./FinalMessage";
 
 export const Tracker = () => {
   const [maxSeconds] = useTimerStore((store) => [store.maxSeconds], shallow);
@@ -33,21 +35,14 @@ export const Tracker = () => {
           <Timer />
         </TimerWrapper>
       </Header>
-      <Track />
+      <ShowResult />
       <Footer>
         {isLaunched && <AddDisruption />}
         {!isLaunched && <RunButton />}
         {isLaunched && <RestartButton />}
       </Footer>
-
-      {status === "finished" && (
-        <Finished>
-          <Typography variant={"h3"}>
-            Your have finished the task. <br />
-            Your result:
-          </Typography>
-        </Finished>
-      )}
+      {status === "finished" && <FinalMessage />}
+      <Space />
     </Wrapper>
   );
 };
@@ -80,7 +75,3 @@ const AudioWrapper = styled.div`
   margin-left: 16px;
 `;
 const TimerWrapper = styled.div``;
-
-const Finished = styled.div`
-  text-align: center;
-`;
