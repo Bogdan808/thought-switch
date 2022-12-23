@@ -13,6 +13,7 @@ export const Selector = memo(({ maxSeconds }: { maxSeconds: number }) => {
   const handleChange = (event: SelectChangeEvent) => {
     setMaxSeconds(Number(event.target.value));
   };
+  const status = useTimerStore((store) => store.status);
   return (
     <FormControl fullWidth>
       <InputLabel id="demo-simple-select-label">Select time</InputLabel>
@@ -22,6 +23,7 @@ export const Selector = memo(({ maxSeconds }: { maxSeconds: number }) => {
         value={String(maxSeconds)}
         label="Select time"
         onChange={handleChange}
+        disabled={status === "launched"}
       >
         <MenuItem value={"120"}>120 s</MenuItem>
         <MenuItem value={"240"}>240 s</MenuItem>
