@@ -9,15 +9,14 @@ import shallow from "zustand/shallow";
 import { RunButton } from "./RunButton";
 import { AudioPlayer } from "./AudioPlayer";
 import { RestartButton } from "./RestartButton";
-import { Typography } from "@mui/material";
 import { ShowResult } from "./Track";
 import { Space } from "../common/Space";
-import { FinalMessage, Finished } from "./FinalMessage";
+import { FinalMessage } from "./FinalMessage";
+import { TStatusTracker } from "./types";
 
 export const Tracker = () => {
   const [maxSeconds] = useTimerStore((store) => [store.maxSeconds], shallow);
-  const isLaunched = useTimerStore((store) => store.isLaunched);
-  const status = useTimerStore((store) => store.status);
+  const status: TStatusTracker = useTimerStore((store) => store.status);
   return (
     <Wrapper>
       <Header>
@@ -37,9 +36,12 @@ export const Tracker = () => {
       </Header>
       <ShowResult />
       <Footer>
-        {isLaunched && <AddDisruption />}
-        {!isLaunched && <RunButton />}
-        {isLaunched && <RestartButton />}
+        {/*{isLaunched && <AddDisruption />}*/}
+        {/*{!isLaunched && <RunButton />}*/}
+        {/*{isLaunched && <RestartButton />}*/}
+        {status === "launched" && <AddDisruption />}
+        {status !== "launched" && <RunButton />}
+        {status === "launched" && <RestartButton />}
       </Footer>
       {status === "finished" && <FinalMessage />}
       <Space />

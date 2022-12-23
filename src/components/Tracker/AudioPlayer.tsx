@@ -5,17 +5,17 @@ import styled from "styled-components";
 import { MusicNote, MusicOff } from "@mui/icons-material";
 
 export const AudioPlayer = () => {
-  const isLaunched = useTimerStore((store) => store.isLaunched);
+  const status = useTimerStore((store) => store.status);
   const ref = createRef<ReactAudioPlayer>();
   const [isMusicOn, setMusicOn] = useState(true);
 
   useEffect(() => {
-    if (isLaunched) {
+    if (status === "launched") {
       ref.current?.audioEl.current?.play();
     } else {
       ref.current?.audioEl.current?.pause();
     }
-  }, [isLaunched]);
+  }, [status]);
   const replay = () => {
     ref.current?.audioEl.current?.play();
   };
