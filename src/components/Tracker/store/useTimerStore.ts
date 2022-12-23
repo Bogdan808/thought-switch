@@ -15,8 +15,6 @@ export interface ITimerStore {
   maxSeconds: number;
   setMaxSeconds: (value: number) => void;
   getMaxSeconds: () => number;
-  isLaunched: boolean;
-  toggleLaunch: () => void;
   restartLaunch: () => void;
 }
 
@@ -56,9 +54,6 @@ export const useTimerStore = create<ITimerStore>((set, get) => ({
   setMaxSeconds: (value) => {
     set((store) => ({ ...store, maxSeconds: value }));
   },
-  isLaunched: false,
-  toggleLaunch: () =>
-    set((store) => ({ ...store, isLaunched: !store.isLaunched })),
   restartLaunch: () =>
     set((store) => ({
       ...store,

@@ -36,9 +36,6 @@ export const Tracker = () => {
       </Header>
       <ShowResult />
       <Footer>
-        {/*{isLaunched && <AddDisruption />}*/}
-        {/*{!isLaunched && <RunButton />}*/}
-        {/*{isLaunched && <RestartButton />}*/}
         {status === "launched" && <AddDisruption />}
         {status !== "launched" && <RunButton />}
         {status === "launched" && <RestartButton />}
