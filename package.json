@@ -17,12 +17,11 @@
     "@types/node": "^16.18.7",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
-    "@types/react-router-dom": "^5.1.7",
     "date-fns": "^2.29.3",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.9.4",
@@ -33,8 +32,8 @@
   "scripts": {
     "start": "PORT=3001 react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "deploy": "gh-pages -d build ",
+    "build": "cross-env PUBLIC_URL=https://thought-switch.web.app react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -58,8 +57,10 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "firebase": "^9.15.0",
     "gh-pages": "^4.0.0"
   }
 }
